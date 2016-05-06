@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1462556068 source:/home/contender/Proyectos/Exptree/main.cpp
+	<iostream>
+
+1462556338 source:/home/contender/Proyectos/Exptree/src/ExprElemNode.cpp
+	"ExprElemNode.h"
+
+1462557625 /home/contender/Proyectos/Exptree/include/ExprElemNode.h
+
+1462562604 source:/home/contender/Proyectos/Exptree/src/NumElemNode.cpp
+	"NumElemNode.h"
+
+1462558632 /home/contender/Proyectos/Exptree/include/NumElemNode.h
+	<ExprElemNode.h>
+
+1462563318 source:/home/contender/Proyectos/Exptree/src/BinaryOpNode.cpp
+	"BinaryOpNode.h"
+
+1462562656 /home/contender/Proyectos/Exptree/include/BinaryOpNode.h
+	<ExprElemNode.h>
+
+1462565104 source:/home/contender/Proyectos/Exptree/src/BinaryExprBuilder.cpp
+	"BinaryExprBuilder.h"
+
+1462564888 /home/contender/Proyectos/Exptree/include/BinaryExprBuilder.h
+	<stack>
+	<string>
+	<ExprElemNode.h>
+	<BinaryOpNode.h>
+
