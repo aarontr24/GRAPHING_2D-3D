@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1463157277 source:/home/contender/Proyectos/Exptree/main.cpp
+1463174594 source:/home/contender/Proyectos/Exptree/main.cpp
 	<iostream>
 	<BinaryExprBuilder.h>
 	<BinaryOpNode.h>
+	<UnaryOpNode.h>
 
 1462556338 source:/home/contender/Proyectos/Exptree/src/ExprElemNode.cpp
 	"ExprElemNode.h"
@@ -33,4 +34,57 @@
 	<string>
 	<sstream>
 	<iostream>
+
+1463174573 source:/home/contender/Proyectos/Exptree/src/UnaryOpNode.cpp
+	"UnaryOpNode.h"
+
+1463177110 /home/contender/Proyectos/Exptree/include/UnaryOpNode.h
+	<ExprElemNode.h>
+	<math.h>
+	<string>
+
+1463179173 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/main.cpp
+	<iostream>
+	<BinaryExprBuilder.h>
+	<BinaryOpNode.h>
+	<UnaryOpNode.h>
+
+1463147366 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/BinaryExprBuilder.h
+	"NumElemNode.h"
+	<ExprElemNode.h>
+	<BinaryOpNode.h>
+	<stack>
+	<string>
+	<sstream>
+	<iostream>
+
+1462558632 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/NumElemNode.h
+	<ExprElemNode.h>
+
+1462557625 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/ExprElemNode.h
+
+1463153546 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/BinaryOpNode.h
+	<ExprElemNode.h>
+	<math.h>
+
+1463179295 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/UnaryOpNode.h
+	<ExprElemNode.h>
+	<math.h>
+	<string.h>
+	<iostream>
+
+1463153999 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryExprBuilder.cpp
+	"BinaryExprBuilder.h"
+
+1463153522 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryOpNode.cpp
+	"BinaryOpNode.h"
+
+1462556338 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/ExprElemNode.cpp
+	"ExprElemNode.h"
+
+1462562604 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/NumElemNode.cpp
+	"NumElemNode.h"
+
+1463179280 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/UnaryOpNode.cpp
+	"UnaryOpNode.h"
 
