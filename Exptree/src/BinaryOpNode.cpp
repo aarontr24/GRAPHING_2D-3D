@@ -31,6 +31,10 @@ double BinaryOpNode::value()
         case '/':
             result = leftval / rightval;
             break;
+
+        case '^':
+            result = pow(leftval,rightval);
+            break;
     }
     return result;
 }

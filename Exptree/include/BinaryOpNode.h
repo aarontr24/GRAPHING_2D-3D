@@ -2,6 +2,7 @@
 #define BINARYOPNODE_H
 
 #include <ExprElemNode.h>
+#include <math.h>
 
 
 class BinaryOpNode : public ExprElemNode

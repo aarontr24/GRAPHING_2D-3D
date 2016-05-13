@@ -1,9 +1,5 @@
 #include "BinaryExprBuilder.h"
-#include "NumElemNode.h"
-#include <sstream>
-#include <iostream>
 
-using namespace std;
 
 BinaryExprBuilder::BinaryExprBuilder()
 {
@@ -25,6 +21,7 @@ BinaryOpNode *BinaryExprBuilder::parse(string &str)
             case '-':
             case '*':
             case '/':
+            case '^':
                 processOperator(token);
                 break;
 
@@ -89,8 +86,10 @@ void BinaryExprBuilder::doBinary(char op)
 {
     ExprElemNode *right = operandStack.top();
     operandStack.pop();
+
     ExprElemNode *left = operandStack.top();
     operandStack.pop();
+
     BinaryOpNode *p = new BinaryOpNode(operatorStack.top(), left, right);
     operandStack.push(p);
 }
@@ -99,7 +98,7 @@ int BinaryExprBuilder::precedence(char op)
 {
     enum
     {
-        lvl0, lvl1, lvl2
+        lvl0, lvl1, lvl2, lvl3
     };
 
     switch(op)
@@ -110,6 +109,8 @@ int BinaryExprBuilder::precedence(char op)
         case '*':
         case '/':
             return lvl2;
+        case '^':
+            return lvl3;
         default:
             return lvl0;
     }

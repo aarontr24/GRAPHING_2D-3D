@@ -1,9 +1,12 @@
 #ifndef BINARYEXPRBUILDER_H
 #define BINARYEXPRBUILDER_H
-#include <stack>
-#include <string>
+#include "NumElemNode.h"
 #include <ExprElemNode.h>
 #include <BinaryOpNode.h>
+#include <stack>
+#include <string>
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 
