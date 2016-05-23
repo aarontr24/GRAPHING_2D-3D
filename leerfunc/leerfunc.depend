@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1463807867 source:/home/contender/Proyectos/leerfunc/main.cpp
+	<iostream>
+	<sstream>
+	<vector>
+
