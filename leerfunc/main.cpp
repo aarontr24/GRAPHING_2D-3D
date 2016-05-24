@@ -1,6 +1,8 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <cstring>
+#include <stdio.h>
 
 using namespace std;
 
@@ -19,28 +21,21 @@ void leer(string str)
             istr.putback(token);
             istr>>number;
             cout<<number<<endl;
-            //continue;
+            continue;
         }
-        else if(token == '+')
+        else if(strchr("+-*/^)(",token)!=NULL)
         {
             cout<<token<<endl;
             continue;
         }
-        else if(token == '(')
-        {
-            cout<<token<<endl;
-        }
-        else if(token == ')')
-        {
-            cout<<token<<endl;
-        }
+
         else
         {
-
             func.push_back(token);
-            if(((istr.peek()>= '0') && (istr.peek()<= '9')) || istr.peek()==istr.eof() || istr.peek()=='('||istr.peek()==')')
+            if(((istr.peek()>= '0') && (istr.peek()<= '9')) || strchr("+-*/^)(",istr.peek())!=NULL || istr.peek()<0)
             {
                 cout<<func<<endl;
+                func.clear();
             }
 
         }
