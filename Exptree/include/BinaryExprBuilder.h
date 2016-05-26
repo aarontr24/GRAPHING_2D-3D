@@ -7,6 +7,13 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <cstring>
+#include <map>
+
+struct opStr{
+    string op;
+    char t;
+};
 
 using namespace std;
 
@@ -20,13 +27,14 @@ class BinaryExprBuilder
     protected:
 
     private:
-        stack<char> operatorStack;
+        stack<opStr> operatorStack;
         stack<ExprElemNode *> operandStack;
 
-        void processOperator(char op);
+        void processOperator(string op, char t);
+        void processOpUnary(string op);
         void processRightParenthesis();
-        void doBinary(char op);
-        int precedence(char op);
+        void do_node();
+        //int precedence(char op);
 
 };
 

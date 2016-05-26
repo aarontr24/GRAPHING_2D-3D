@@ -43,13 +43,13 @@
 	<math.h>
 	<string>
 
-1463179173 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/main.cpp
+1464239189 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/main.cpp
 	<iostream>
 	<BinaryExprBuilder.h>
 	<BinaryOpNode.h>
 	<UnaryOpNode.h>
 
-1463351570 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/BinaryExprBuilder.h
+1464236441 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/BinaryExprBuilder.h
 	"NumElemNode.h"
 	<ExprElemNode.h>
 	<BinaryOpNode.h>
@@ -57,34 +57,38 @@
 	<string>
 	<sstream>
 	<iostream>
+	<cstring>
+	<map>
 
-1463351570 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/NumElemNode.h
+1464041931 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/NumElemNode.h
 	<ExprElemNode.h>
 
-1463351570 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/ExprElemNode.h
+1464041931 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/ExprElemNode.h
 
-1463351570 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/BinaryOpNode.h
+1464239619 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/BinaryOpNode.h
 	<ExprElemNode.h>
 	<math.h>
+	<string>
+	<iostream>
 
-1463351570 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/UnaryOpNode.h
+1464041931 /home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/include/UnaryOpNode.h
 	<ExprElemNode.h>
 	<math.h>
 	<string.h>
 	<iostream>
 
-1463351570 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryExprBuilder.cpp
+1464241363 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryExprBuilder.cpp
 	"BinaryExprBuilder.h"
 
-1463351570 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryOpNode.cpp
+1464241363 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryOpNode.cpp
 	"BinaryOpNode.h"
 
-1463351570 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/ExprElemNode.cpp
+1464041931 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/ExprElemNode.cpp
 	"ExprElemNode.h"
 
-1463351570 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/NumElemNode.cpp
+1464041931 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/NumElemNode.cpp
 	"NumElemNode.h"
 
-1463351570 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/UnaryOpNode.cpp
+1464041931 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/UnaryOpNode.cpp
 	"UnaryOpNode.h"
 

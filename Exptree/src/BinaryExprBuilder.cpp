@@ -1,5 +1,6 @@
 #include "BinaryExprBuilder.h"
 
+map<string,int> precedence = {{"(",0},{"+",1},{"-",1},{"*",2},{"/",2},{"^",3},{"sqrt",3},{"sin",4},{"cos",4},{"tan",4},{"asin",4},{"acos",4},{"atan",4}};
 
 BinaryExprBuilder::BinaryExprBuilder()
 {
@@ -10,92 +11,116 @@ BinaryOpNode *BinaryExprBuilder::parse(string &str)
 {
     istringstream istr(str); //convierte el string en un vector
     char token;
-
-    while (istr >> token)
+    string func;
+    char temp;
+    while(istr>>token)
     {
-
-        switch (token)
+        if ((token >= '0') && (token <= '9') )
         {
-
-            case '+':
-            case '-':
-            case '*':
-            case '/':
-            case '^':
-                processOperator(token);
-                break;
-
-            case ')':
-                processRightParenthesis();
-                break;
-
-            case '(':
-                operatorStack.push(token);
-                break;
-
-            default:
-                istr.putback(token);
-
-                double number;
-                istr >> number;
-                //cout<<number<<endl;
-
-                NumElemNode *newNode = new NumElemNode(number);
-                operandStack.push(newNode);
-
-                continue;
+            double number;
+            istr.putback(token);
+            istr>>number;
+            NumElemNode *newNode = new NumElemNode(number);
+            operandStack.push(newNode);
         }
+        else if(strchr("+-*/^)(",token)!=NULL)
+        {
+            //cout<<temp<<endl;
+            if((temp=='(' || temp==NULL) && token=='-')
+            {
+                processOperator(string(1,token),'u');
+                //cout<<"negativo"<<endl;
+            }
+            else
+            {
+                if(token==')')
+                {
+                    processRightParenthesis();
+                }
+                else if(token=='(')
+                {
+                    opStr a = {string(1,token),'n'};
+                    operatorStack.push(a);
+                }
+                else
+                {
+                    processOperator(string(1,token),'b');
+                }
+            }
+        }
+        else
+        {
+            func.push_back(token);
+            if(((istr.peek()>= '0') && (istr.peek()<= '9')) || strchr("+-*/^)(",istr.peek())!=NULL || istr.peek()<0)
+            {
+                if(func.length()==1)
+                {
+                    cout<<"variable"<<endl;
+                }
+                else{
+                    processOperator(func,'u');
+                    //cout<<func<<endl;
+                }
+                func.clear();
+            }
+        }
+        temp=token;
     }
 
     while (!operatorStack.empty())
     {
-
-        doBinary(operatorStack.top());
+        do_node();
         operatorStack.pop();
     }
-
 
     ExprElemNode *p = operandStack.top();
 
     return static_cast<BinaryOpNode *> (p);
 }
 
-void BinaryExprBuilder::processOperator(char op)
+void BinaryExprBuilder::processOperator(string op, char t)
 {
-    int opPrecedence = precedence(op);
+    int opPrecedence = precedence.find(op)->second;
 
-    while((!operatorStack.empty()) && (opPrecedence <= precedence(operatorStack.top())))
+    while((!operatorStack.empty()) && (opPrecedence <= precedence.find(operatorStack.top().op)->second))
     {
-        doBinary(operatorStack.top());
+        do_node();
         operatorStack.pop();
     }
-    operatorStack.push(op);
+    opStr a = {op,t};
+    operatorStack.push(a);
 }
 
 void BinaryExprBuilder::processRightParenthesis()
 {
-    while(!operatorStack.empty() && operatorStack.top()!='(')
+    while(!operatorStack.empty() && operatorStack.top().op!="(")
     {
-        doBinary(operatorStack.top());
+        do_node();
         operatorStack.pop();
     }
     operatorStack.pop(); //Quitamos '('.
 }
 
-void BinaryExprBuilder::doBinary(char op)
+void BinaryExprBuilder::do_node()
 {
     ExprElemNode *right = operandStack.top();
-    operandStack.pop();
-
+    if(operatorStack.top().t=='u')
+    {
+        right = NULL;
+    }else{
+        operandStack.pop();
+    }
     ExprElemNode *left = operandStack.top();
     operandStack.pop();
 
-    BinaryOpNode *p = new BinaryOpNode(operatorStack.top(), left, right);
+    BinaryOpNode *p = new BinaryOpNode(operatorStack.top().op, left, right);
     operandStack.push(p);
 }
-
-int BinaryExprBuilder::precedence(char op)
+/*
+int BinaryExprBuilder::precedence(string op)
 {
+    map<string,int> precedence = {{")",0},{"+",1},{"-",1},{"*",2},{"/",2},{"^",3},{"sqrt",3},{"sin",4},{"cos",4},{"tan",4},{"asin",4},{"acos",4},{"atan",4}};
+
     enum
     {
         lvl0, lvl1, lvl2, lvl3
@@ -115,7 +140,7 @@ int BinaryExprBuilder::precedence(char op)
             return lvl0;
     }
 }
-
+*/
 BinaryExprBuilder::~BinaryExprBuilder()
 {
     //dtor

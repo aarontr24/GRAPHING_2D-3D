@@ -3,19 +3,23 @@
 
 #include <ExprElemNode.h>
 #include <math.h>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 
 class BinaryOpNode : public ExprElemNode
 {
     public:
-        BinaryOpNode(char op, ExprElemNode *l, ExprElemNode *r);
+        BinaryOpNode(string op, ExprElemNode *l, ExprElemNode *r);
         virtual double value();
         virtual ~BinaryOpNode();
 
     protected:
 
     private:
-        char binary_op;
+        string binary_op;
         ExprElemNode *left;
         ExprElemNode *right;
 };
