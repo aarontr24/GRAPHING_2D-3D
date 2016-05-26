@@ -1,6 +1,6 @@
 #include "BinaryExprBuilder.h"
 
-map<string,int> precedence = {{"(",0},{"+",1},{"-",1},{"*",2},{"/",2},{"^",3},{"sqrt",3},{"sin",4},{"cos",4},{"tan",4},{"asin",4},{"acos",4},{"atan",4}};
+map<string,int> precedence = {{"(",0},{"+",1},{"-",1},{"*",2},{"/",2},{"^",3},{"sqrt",3},{"sin",4},{"cos",4},{"tan",4},{"asin",4},{"acos",4},{"atan",4},{"pi",5},{"exp",5}};
 
 BinaryExprBuilder::BinaryExprBuilder()
 {
@@ -57,7 +57,10 @@ BinaryOpNode *BinaryExprBuilder::parse(string &str)
                 {
                     cout<<"variable"<<endl;
                 }
-                else{
+                else if(func == "pi"){
+                    processOperator(func,'p');
+                }else
+                {
                     processOperator(func,'u');
                     //cout<<func<<endl;
                 }
@@ -103,16 +106,24 @@ void BinaryExprBuilder::processRightParenthesis()
 
 void BinaryExprBuilder::do_node()
 {
-    ExprElemNode *right = operandStack.top();
-    if(operatorStack.top().t=='u')
+    ExprElemNode *right;
+    if(operatorStack.top().t=='u'||operatorStack.top().t=='p')
     {
         right = NULL;
     }else{
+        right = operandStack.top();
         operandStack.pop();
     }
-    ExprElemNode *left = operandStack.top();
-    operandStack.pop();
+    ExprElemNode *left;
+    if(operatorStack.top().t=='p')
+    {
+        NumElemNode *newNode = new NumElemNode(M_PI);
+        left = newNode;
 
+    }else{
+        left = operandStack.top();
+        operandStack.pop();
+    }
     BinaryOpNode *p = new BinaryOpNode(operatorStack.top().op, left, right);
     operandStack.push(p);
 }
