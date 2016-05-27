@@ -38,11 +38,13 @@
 		<Unit filename="include/BinaryOpNode.h" />
 		<Unit filename="include/ExprElemNode.h" />
 		<Unit filename="include/NumElemNode.h" />
+		<Unit filename="include/VariableNode.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/BinaryExprBuilder.cpp" />
 		<Unit filename="src/BinaryOpNode.cpp" />
 		<Unit filename="src/ExprElemNode.cpp" />
 		<Unit filename="src/NumElemNode.cpp" />
+		<Unit filename="src/VariableNode.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

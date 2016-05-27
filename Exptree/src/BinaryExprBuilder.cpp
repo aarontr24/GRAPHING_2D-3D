@@ -1,6 +1,6 @@
 #include "BinaryExprBuilder.h"
 
-map<string,int> precedence = {{"(",0},{"+",1},{"-",1},{"*",2},{"/",2},{"^",3},{"sqrt",3},{"sin",4},{"cos",4},{"tan",4},{"asin",4},{"acos",4},{"atan",4},{"pi",5},{"exp",5}};
+map<string,int> precedence = {{"(",0},{"+",1},{"-",1},{"*",2},{"/",2},{"^",3},{"sqrt",3},{"sin",4},{"cos",4},{"tan",4},{"asin",4},{"acos",4},{"atan",4},{"pi",5},{"exp",5},{"--",5}};
 
 BinaryExprBuilder::BinaryExprBuilder()
 {
@@ -28,8 +28,8 @@ BinaryOpNode *BinaryExprBuilder::parse(string &str)
             //cout<<temp<<endl;
             if((temp=='(' || temp==NULL) && token=='-')
             {
-                processOperator(string(1,token),'u');
-                //cout<<"negativo"<<endl;
+                //cout<<string(1,token)+'-'<<endl;
+                processOperator(string(1,token)+'-','u');
             }
             else
             {
@@ -127,31 +127,7 @@ void BinaryExprBuilder::do_node()
     BinaryOpNode *p = new BinaryOpNode(operatorStack.top().op, left, right);
     operandStack.push(p);
 }
-/*
-int BinaryExprBuilder::precedence(string op)
-{
-    map<string,int> precedence = {{")",0},{"+",1},{"-",1},{"*",2},{"/",2},{"^",3},{"sqrt",3},{"sin",4},{"cos",4},{"tan",4},{"asin",4},{"acos",4},{"atan",4}};
 
-    enum
-    {
-        lvl0, lvl1, lvl2, lvl3
-    };
-
-    switch(op)
-    {
-        case '+':
-        case '-':
-            return lvl1;
-        case '*':
-        case '/':
-            return lvl2;
-        case '^':
-            return lvl3;
-        default:
-            return lvl0;
-    }
-}
-*/
 BinaryExprBuilder::~BinaryExprBuilder()
 {
     //dtor

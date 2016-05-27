@@ -77,10 +77,10 @@
 	<string.h>
 	<iostream>
 
-1464269735 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryExprBuilder.cpp
+1464315238 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryExprBuilder.cpp
 	"BinaryExprBuilder.h"
 
-1464268849 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryOpNode.cpp
+1464315206 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/BinaryOpNode.cpp
 	"BinaryOpNode.h"
 
 1464041931 source:/home/contender/GitHub/GRAPHING_2D-3D_CSUNSA/Exptree/src/ExprElemNode.cpp

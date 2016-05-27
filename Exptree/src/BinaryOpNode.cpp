@@ -22,6 +22,7 @@ double BinaryOpNode::value()
     map<string,double> list_op;
     list_op.insert(pair<string,double>("+",leftval+rightval));
     list_op.insert(pair<string,double>("-",leftval-rightval));
+    list_op.insert(pair<string,double>("--",-(leftval)));
     list_op.insert(pair<string,double>("*",leftval*rightval));
     list_op.insert(pair<string,double>("/",leftval/rightval));
     list_op.insert(pair<string,double>("^",pow(leftval,rightval)));
@@ -35,57 +36,9 @@ double BinaryOpNode::value()
     list_op.insert(pair<string,double>("asin",asin(leftval)));;
     list_op.insert(pair<string,double>("acos",acos(leftval)));
     list_op.insert(pair<string,double>("atan",atan(leftval)));
-    //cout<<leftval<<" "<<rightval<<endl;
-    //cout<<list_op.find(binary_op)->first<<endl;
+
     return list_op.find(binary_op)->second;
 
-
-    /*
-
-    double result;
-    if(binary_op=="+")
-    {
-        result = leftval + rightval;
-    }else if(binary_op=="-")
-    {
-
-        if(rightval==NULL)
-        {
-            result = -leftval;
-        }else{
-            result = leftval - rightval;
-        }
-    }else if(binary_op=="sin")
-    {
-        result = sin(leftval);
-    }
-    /*
-    switch(binary_op)
-    {
-        case '+':
-            result = leftval + rightval;
-            break;
-
-        case '-':
-            result = leftval - rightval;
-            break;
-
-        case '*':
-            result = leftval * rightval;
-            break;
-
-        case '/':
-            result = leftval / rightval;
-            break;
-
-        case '^':
-            result = pow(leftval,rightval);
-            break;
-    }
-
-
-    return result;
-    */
 }
 
 BinaryOpNode::~BinaryOpNode()
