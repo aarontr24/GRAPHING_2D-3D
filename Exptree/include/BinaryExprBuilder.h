@@ -1,8 +1,9 @@
 #ifndef BINARYEXPRBUILDER_H
 #define BINARYEXPRBUILDER_H
-#include "NumElemNode.h"
+#include <NumElemNode.h>
 #include <ExprElemNode.h>
 #include <BinaryOpNode.h>
+#include <VariableNode.h>
 #include <stack>
 #include <string>
 #include <sstream>
@@ -22,6 +23,7 @@ class BinaryExprBuilder
     public:
         BinaryExprBuilder();
         BinaryOpNode *parse(string &istr);
+        void set_Var(double Var1, double Var2);
         virtual ~BinaryExprBuilder();
 
     protected:
@@ -30,12 +32,13 @@ class BinaryExprBuilder
         stack<opStr> operatorStack;
         stack<ExprElemNode *> operandStack;
 
+        double V1 = 0;
+        double V2 = 0;
+
         void processOperator(string op, char t);
         void processOpUnary(string op);
         void processRightParenthesis();
         void do_node();
-        //int precedence(char op);
-
 };
 
 #endif // BINARYEXPRBUILDER_H

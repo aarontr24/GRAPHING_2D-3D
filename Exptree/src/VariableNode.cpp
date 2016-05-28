@@ -1,8 +1,14 @@
 #include "VariableNode.h"
 
-VariableNode::VariableNode()
+VariableNode::VariableNode(double &var)
 {
+    number=&var;
     //ctor
+}
+
+double VariableNode::value()
+{
+    return *number;
 }
 
 VariableNode::~VariableNode()

@@ -7,11 +7,19 @@ BinaryExprBuilder::BinaryExprBuilder()
     //ctor
 }
 
+void BinaryExprBuilder::set_Var(double Var1, double Var2)
+{
+    V1=Var1;
+    V2=Var2;
+}
+
 BinaryOpNode *BinaryExprBuilder::parse(string &str)
 {
+    //V1=V2=0;
     istringstream istr(str); //convierte el string en un vector
     char token;
     string func;
+    string temp2 = "0";
     char temp;
     while(istr>>token)
     {
@@ -55,7 +63,15 @@ BinaryOpNode *BinaryExprBuilder::parse(string &str)
             {
                 if(func.length()==1)
                 {
-                    cout<<"variable"<<endl;
+                    if(func=="x")
+                    {
+                        VariableNode *newNode = new VariableNode(V1);
+                        operandStack.push(newNode);
+                    }else{
+                        VariableNode *newNode = new VariableNode(V2);
+                        operandStack.push(newNode);
+                    }
+                    //cout<<"variable"<<endl;
                 }
                 else if(func == "pi"){
                     processOperator(func,'p');
