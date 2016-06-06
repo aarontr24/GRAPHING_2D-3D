@@ -23,40 +23,27 @@ int main()
     BinaryOpNode *root = b.parse(expresion);
 
     ofstream file("graph.dat");
-    for(float i=-20;i<=41;i+=0.01)
+    int opcion;
+    cin>>opcion;
+    if(opcion==2)
     {
-        b.set_Var(i,0);
-        file<<i<<" "<<root->value()<<endl;
+        for(float i=-20;i<=21;i+=0.01)
+        {
+            b.set_Var(i,0);
+            file<<i<<" "<<root->value()<<endl;
+        }
+    }else
+    {
+        for(int i=-10;i<=10;i++)
+        {
+            for(int j=-10;j<=10;j++)
+            {
+                b.set_Var(i,j);
+                file<<i<<" "<<j<<" "<<root->value()<<endl;
+            }
+        }
     }
 
-    /*
-    b.set_Var(-5,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(-4,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(-3,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(-2,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(-1,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(0,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(1,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(2,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(3,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(4,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(5,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(6,0);
-    cout << " resultado = " << root->value();
-    b.set_Var(7,0);
-    cout << " resultado = " << root->value();
-    */
 
     return 0;
 }
